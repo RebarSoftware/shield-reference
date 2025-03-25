@@ -1,0 +1,89 @@
+:root {
+  --accent-color: #FF6B00;
+  --accent-hover: #FF8C33;
+  --accent-light: #FFE1CC;
+  --bg-color: #1A1A1A;
+  --text-color: #F8F8F8;
+  --border-color: #333333;
+  --card-bg: #242424;
+  
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+button:hover {
+  background-color: var(--accent-hover);
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--accent-light);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-color: #FF6B00;
+    --accent-hover: #E55E00;
+    --accent-light: #FFE1CC;
+    --bg-color: #FFFFFF;
+    --text-color: #1A1A1A;
+    --border-color: #E2E2E2;
+    --card-bg: #F5F5F5;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+  a:hover {
+    color: var(--accent-hover);
+  }
+  button {
+    background-color: var(--accent-color);
+  }
+}

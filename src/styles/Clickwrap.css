@@ -1,0 +1,67 @@
+.clickwrap-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.75);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.clickwrap-overlay {
+	color: black !important;
+}
+
+.clickwrap-container {
+	background-color: white;
+	border-radius: 8px;
+	padding: 24px;
+	width: 90%;
+	max-width: 600px;
+	max-height: 90vh;
+	overflow-y: auto;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.disclaimer-box {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 16px;
+	margin: 16px 0;
+	height: 200px;
+	overflow-y: auto;
+	background-color: #f9f9f9;
+}
+
+.agreement-checkbox {
+	display: flex;
+	align-items: center;
+	margin: 16px 0;
+}
+
+.agreement-checkbox input {
+	margin-right: 8px;
+}
+
+.accept-button {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	padding: 10px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	width: 100%;
+}
+
+.accept-button:disabled {
+	background-color: #cccccc;
+	cursor: not-allowed;
+}
+
+.accept-button:hover:not(:disabled) {
+	background-color: #45a049;
+}

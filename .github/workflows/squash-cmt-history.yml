@@ -1,0 +1,48 @@
+name: Squash Master Branch History
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: 'Message for the squashed commit'
+        required: true
+        default: 'Squash master branch history'
+
+permissions:
+  contents: write
+
+jobs:
+  squash-history:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Squash Main Branch History
+        run: |
+          # Create a temporary branch
+          git checkout -b temp-branch
+          
+          # Create an orphan branch (no history)
+          git checkout --orphan squashed-main
+          
+          # Add all files
+          git add .
+          
+          # Commit with the provided message
+          git commit -m "${{ github.event.inputs.commit_message }}"
+          
+          # Force push to main
+          git push origin squashed-main:main --force
+          
+          # Clean up temporary branch
+          git checkout main
+          git branch -D temp-branch squashed-main
